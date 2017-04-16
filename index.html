@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>jquery.showLinkLocation</title>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="dist/jquery.show-link-location.js"></script>
+<script>
+$(function() {
+  $('.show-location')
+    .showLinkLocation()
+    .css('font-weight', 'bold');
+// console.log($('#a2').data('show-link-location'));
+
+  $('#b2').click(function() {
+    $('#a2')
+      .showLinkLocation('reset', {space: ': ', braceLeft: '"', braceRight: '"'})
+      .css('font-weight', 'normal');
+  });
+
+  $('#b3').click(function() {
+    $('#a3')
+      .showLinkLocation('destroy')
+      .css('text-decoration', 'none');
+  });
+});
+</script>
+</head>
+<body>
+<h1>jquery.showLinkLocation</h1>
+<ul>
+  <li><a id="a1" class="show-location" href="http://qiita.com/">Qiita</a></li>
+  <li><a id="a2" class="show-location" href="https://github.com/">GitHub</a></li>
+  <li><a id="a3" class="show-location" href="http://b.hatena.ne.jp/">はてなブックマーク</a></li>
+</ul>
+<p>
+  <button id="b2">GitHubのリンクのみ、新たに作り直す (reset)</button><br>
+  <button id="b3">はてブのリンクのみ、URLを削除する (destroy)</button>
+</p>
+</body>
+</html>

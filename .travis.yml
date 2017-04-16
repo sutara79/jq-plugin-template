@@ -1,0 +1,10 @@
+language: node_js
+node_js:
+  - "node"
+
+# masterブランチのみ実行対象に入れる
+branches:
+  only: 
+    - master
+
+script: npm test

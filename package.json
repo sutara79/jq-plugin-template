@@ -1,0 +1,11 @@
+{
+  "name": "demo-mocha2",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-mocha-phantomjs": "^0.12.1"
+  },
+  "scripts": {
+    "gulp": "gulp",
+    "test": "gulp test"
+  }
+}
