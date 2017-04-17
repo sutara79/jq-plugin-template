@@ -7,31 +7,43 @@
 <script src="dist/jquery.show-link-location.js"></script>
 <script>
 $(function() {
-  $('.show-location')
+  // 複数の要素にプラグインを適用する。
+  // メソッドチェーンの確認のため、事後に別途でCSS変更する。
+  $('.show-url')
     .showLinkLocation()
     .css('font-weight', 'bold');
-// console.log($('#a2').data('show-link-location'));
 
+  // ひとつだけ、ユーザの操作に応じてプラグインのサブメソッドを実行する。
+  // メソッドチェーンの確認のため、事後に別途でCSS変更する。
   $('#b2').click(function() {
     $('#a2')
-      .showLinkLocation('reset', {space: ': ', braceLeft: '"', braceRight: '"'})
+      .showLinkLocation('reset', {
+        space: ': ',
+        bracketLeft: '"',
+        bracketRight: '"'
+      })
       .css('font-weight', 'normal');
   });
 
+  // ひとつだけ、ユーザの操作に応じてプラグインのサブメソッドを実行する。
+  // メソッドチェーンの確認のため、事後に別途でCSS変更する。
   $('#b3').click(function() {
     $('#a3')
       .showLinkLocation('destroy')
       .css('text-decoration', 'none');
   });
+
+
+  // $('#a1').showLinkLocation('_initOption');
 });
 </script>
 </head>
 <body>
 <h1>jquery.showLinkLocation</h1>
 <ul>
-  <li><a id="a1" class="show-location" href="http://qiita.com/">Qiita</a></li>
-  <li><a id="a2" class="show-location" href="https://github.com/">GitHub</a></li>
-  <li><a id="a3" class="show-location" href="http://b.hatena.ne.jp/">はてなブックマーク</a></li>
+  <li><a id="a1" class="show-url" href="http://qiita.com/">Qiita</a></li>
+  <li><a id="a2" class="show-url" href="https://github.com/">GitHub</a></li>
+  <li><a id="a3" class="show-url" href="http://b.hatena.ne.jp/">はてなブックマーク</a></li>
 </ul>
 <p>
   <button id="b2">GitHubのリンクのみ、新たに作り直す (reset)</button><br>
