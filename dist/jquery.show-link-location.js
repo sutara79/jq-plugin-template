@@ -7,12 +7,12 @@
  * @author Yuusaku Miyazaki <toumin.m7@gmail.com>
  * @license MIT License
  */
-(function($) {
+;(function($) {
 
 /**
  * jQueryにプラグインとして追加されるメソッド
+ * @alias "$.fn.showLinkLocation"
  * @global
- * @memberof jQuery
  * @param {object|string} arg1 - オプション、またはサブメソッド名
  * @param {string} [arg1.space=' '] - 空白
  * @param {string} [arg1.bracketLeft='('] - 左かっこ
@@ -20,32 +20,33 @@
  * @param {string} [arg1.cssClass='link-location'] - 挿入するspan要素のCSSクラス名
  * @return {object} jQueryオブジェクト
  */
+// $.fn.showLinkLocation = function(arg1) {
 $.fn.showLinkLocation = function(arg1) {
   // サブメソッド実行に備えて、数の分からない引数をまとめて配列にする。
   // 第1引数はサブメソッド名なので、それだけは除外する。
-  var args = Array.prototype.slice.call(arguments, 1);
+  var subMethodArgs = Array.prototype.slice.call(arguments, 1);
 
   // メソッドチェーン持続のためにjQueryオブジェクトを返す
   return this.each(function() {
-    // すでにプラグインを適用済みなら、保存したデータを呼び出す
-    var objData = $(this).data('show-link-location');
+    // プラグインを適用済みなら、保存してあるはずのインスタンスを呼び出す
+    var instance = $(this).data('show-link-location');
 
-    // if (objData && arg1 in objData && arg1.charAt(0) != '_') {
-    if (objData && arg1 in objData) {
-      // サブメソッドを実行する
-      objData[arg1].apply(objData, args);
+    if (instance && arg1 in instance && arg1.charAt(0) != '_') {
+      // publicなサブメソッドを実行する
+      instance[arg1].apply(instance, subMethodArgs);
     } else if (typeof arg1 === 'object' || !arg1) {
-      // プラグインを適用する (初回)
-      $(this).data('show-link-location', new ShowLinkLocation(this, arg1));
+      // プラグインを適用し、インスタンスをdataに保存する
+      $(this).data('show-link-location', new $.showLinkLocation(this, arg1));
+    } else {
+      // エラーとしてコンソールに表示される
+      console.error('Sub-method "' +  arg1 + '" does not exist on $.showLinkLocation');
     }
-    // } else {
-    //   $.error('Method ' +  arg1 + ' does not exist on jQuery.showLinkLocation');
-    // }
   });
 };
 
 /**
  * プラグインの本体
+ * @alias "$.showLinkLocation"
  * @global
  * @class
  * @param {object} elem - プラグインを適用する要素
@@ -53,14 +54,14 @@ $.fn.showLinkLocation = function(arg1) {
  * @property {object} elem - プラグインを適用する要素
  * @property {object} option - プラグインのオプション
  */
-function ShowLinkLocation(elem, option) {
+$.showLinkLocation = function(elem, option) {
   this.elem = elem;
   this.option = this._initOption(option);
   $(this.elem).append(this._createSpan());
 }
 
-// privateメソッドは名前の先頭に"_"を付けている。
-$.extend(ShowLinkLocation.prototype, /** @lends ShowLinkLocation.prototype */ {
+// privateメソッドは名前の先頭に"_"が付く。
+$.extend($.showLinkLocation.prototype, /** @lends "$.showLinkLocation".prototype */ {
   /**
    * オプションを初期化する
    * @private
