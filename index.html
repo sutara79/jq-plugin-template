@@ -8,13 +8,21 @@
 <script>
 $(function() {
   // 複数の要素にプラグインを適用する。
-  // メソッドチェーンの確認のため、事後に別途でCSS変更する。
+  // メソッドチェーンの確認のため、事後にCSSを変更する。
   $('.show-url')
     .showLinkLocation()
     .css('font-weight', 'bold');
 
   // ひとつだけ、ユーザの操作に応じてプラグインのサブメソッドを実行する。
-  // メソッドチェーンの確認のため、事後に別途でCSS変更する。
+  // メソッドチェーンの確認のため、事後にCSSを変更する。
+  $('#b1').click(function() {
+    $('#a1')
+      .showLinkLocation('destroy')
+      .css('text-decoration', 'none');
+  });
+
+  // ひとつだけ、ユーザの操作に応じてプラグインのサブメソッドを実行する。
+  // メソッドチェーンの確認のため、事後にCSSを変更する。
   $('#b2').click(function() {
     $('#a2')
       .showLinkLocation('reset', {
@@ -25,16 +33,11 @@ $(function() {
       .css('font-weight', 'normal');
   });
 
-  // ひとつだけ、ユーザの操作に応じてプラグインのサブメソッドを実行する。
-  // メソッドチェーンの確認のため、事後に別途でCSS変更する。
+  // プライベートメソッド「_initOption」を呼び出す。
+  // コンソールにエラーが表示される。
   $('#b3').click(function() {
-    $('#a3')
-      .showLinkLocation('destroy')
-      .css('text-decoration', 'none');
+    $('#a3').showLinkLocation('_initOption');
   });
-
-
-  // $('#a1').showLinkLocation('_initOption');
 });
 </script>
 </head>
@@ -46,8 +49,9 @@ $(function() {
   <li><a id="a3" class="show-url" href="http://b.hatena.ne.jp/">はてなブックマーク</a></li>
 </ul>
 <p>
+  <button id="b1">Qiitaのリンクのみ、URLを削除する (destroy)</button><br>
   <button id="b2">GitHubのリンクのみ、新たに作り直す (reset)</button><br>
-  <button id="b3">はてブのリンクのみ、URLを削除する (destroy)</button>
+  <button id="b3">外部公開されていないメソッドを呼び出す (コンソールにエラーが表示される)</button>
 </p>
 </body>
 </html>
