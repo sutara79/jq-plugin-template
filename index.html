@@ -9,9 +9,11 @@
 $(function() {
   // 複数の要素にプラグインを適用する。
   // メソッドチェーンの確認のため、事後にCSSを変更する。
-  $('.show-url')
-    .showLinkLocation()
-    .css('font-weight', 'bold');
+  $('#b0').click(function() {
+    $('.show-url')
+      .showLinkLocation()
+      .css('font-weight', 'bold');
+  });
 
   // ひとつだけ、ユーザの操作に応じてプラグインのサブメソッドを実行する。
   // メソッドチェーンの確認のため、事後にCSSを変更する。
@@ -48,6 +50,9 @@ $(function() {
   <li><a id="a2" class="show-url" href="https://github.com/">GitHub</a></li>
   <li><a id="a3" class="show-url" href="http://b.hatena.ne.jp/">はてなブックマーク</a></li>
 </ul>
+<p>
+  <button id="b0">3つのa要素にプラグインを適用する</button>
+</p>
 <p>
   <button id="b1">Qiitaのリンクのみ、URLを削除する (destroy)</button><br>
   <button id="b2">GitHubのリンクのみ、新たに作り直す (reset)</button><br>
