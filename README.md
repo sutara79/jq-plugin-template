@@ -1,9 +1,7 @@
 # jq-plugin-template
+個人的な、jQueryプラグインの定義とテスト方法のひな形です。
 
-My template for jQuery plugin.
-
-- method-chainable
-- accessible public methods from outside
+## Demo
 
 ## Author
 Yuusaku Miyazaki <toumin.m7@gmail.com>

@@ -2,7 +2,7 @@ $(function() {
   mocha.setup('bdd');
   var assert = chai.assert;
 
-  describe('jquery.show-link-location', function() {
+  describe('jquery.show-link-location.js', function() {
     var elem1, res1;
     before(function() {
       elem1 = $('.show-url');
