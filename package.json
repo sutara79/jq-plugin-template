@@ -1,11 +1,9 @@
 {
   "name": "jq-plugin-template",
   "devDependencies": {
-    "gulp": "^3.9.1",
-    "gulp-mocha-phantomjs": "^0.12.1"
+    "mocha-phantomjs": "^4.1.0"
   },
   "scripts": {
-    "gulp": "gulp",
-    "test": "gulp test"
+    "test": "./node_modules/.bin/mocha-phantomjs --ssl-protocol=any test/index.html"
   }
 }
