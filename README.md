@@ -12,6 +12,10 @@ https://sutara79.github.io/jq-plugin-template/
 - メソッドチェーンを持続します。
 - プラグイン定義後に、パブリックメソッドを外部から実行できます。
 
+詳しくは下記をご覧ください。
+
+- [外部からメソッドを実行可能なjQueryプラグインの定義方法](http://qiita.com/sutara79/items/86234d8d4db1dd25e85e)
+
 ## Compatibility
 - jQuery: 1.8+, 2.2, 3.2
 - Browser: Chrome57, Firefox52, IE9+, EdgeHTML14
