@@ -7,12 +7,13 @@
  * @author Yuusaku Miyazaki <toumin.m7@gmail.com>
  * @license MIT License
  */
+/** @external "jQuery.fn" */
+/** @external jQuery */
 ;(function($) {
 
 /**
  * jQueryにプラグインとして追加されるメソッド
- * @alias "$.fn.showLinkLocation"
- * @global
+ * @function external:"jQuery.fn".showLinkLocation
  * @param {object|string} arg1 - オプション、またはサブメソッド名
  * @param {string} [arg1.space=' '] - 空白
  * @param {string} [arg1.bracketLeft='('] - 左かっこ
@@ -20,7 +21,6 @@
  * @param {string} [arg1.cssClass='link-location'] - 挿入するspan要素のCSSクラス名
  * @return {object} jQueryオブジェクト
  */
-// $.fn.showLinkLocation = function(arg1) {
 $.fn.showLinkLocation = function(arg1) {
   // サブメソッド実行に備えて、数の分からない引数をまとめて配列にする。
   // 第1引数はサブメソッド名なので、それだけは除外する。
@@ -46,9 +46,7 @@ $.fn.showLinkLocation = function(arg1) {
 
 /**
  * プラグインの本体
- * @alias "$.showLinkLocation"
- * @global
- * @class
+ * @class external:jQuery.showLinkLocation
  * @param {object} elem - プラグインを適用する要素
  * @param {object} option - ユーザから渡されたオプション
  * @property {object} elem - プラグインを適用する要素
@@ -61,7 +59,7 @@ $.showLinkLocation = function(elem, option) {
 }
 
 // privateメソッドは名前の先頭に"_"が付く。
-$.extend($.showLinkLocation.prototype, /** @lends "$.showLinkLocation".prototype */ {
+$.extend($.showLinkLocation.prototype, /** @lends external:jQuery.showLinkLocation.prototype */ {
   /**
    * オプションを初期化する
    * @private
