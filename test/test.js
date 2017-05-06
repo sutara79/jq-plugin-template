@@ -1,6 +1,10 @@
 $(function() {
   mocha.setup('bdd');
-  var assert = chai.assert;
+  // var assert = chai.assert;
+  var assert = function(expr, msg) {
+    if (!expr) throw new Error(msg || 'failed');
+  };
+
 
   describe('jquery.show-link-location.js', function() {
     var elem1, res1;

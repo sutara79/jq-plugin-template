@@ -6,13 +6,7 @@
     "url": "https://github.com/sutara79/jq-plugin-template.git"
   },
   "devDependencies": {
-    "mocha-phantomjs": "^4.1.0",
-    "pre-commit": "^1.2.2",
-    "uglify-js": "^2.8.22"
   },
   "scripts": {
-    "test": "mocha-phantomjs --ssl-protocol=any test/index.html",
-    "uglify-js": "uglifyjs dist/jquery.show-link-location.js -cmo dist/jquery.show-link-location.min.js --comments",
-    "pre-commit": "test"
   }
 }
