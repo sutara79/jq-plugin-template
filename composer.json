@@ -1,0 +1,23 @@
+{
+  "name": "sutara79/demo-phpunit",
+  "description": "My practice for PHPUnit.",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Yuusaku Miyazaki",
+      "email": "toumin.m7@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "myapp\\": "dist/php/"
+    }
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^6.1"
+  },
+  "scripts": {
+    "test": "phpunit",
+    "cover": "phpunit --coverage-html coverage/php"
+  }
+}

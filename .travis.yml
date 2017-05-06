@@ -1,15 +1,22 @@
-language: node_js
-node_js:
-  - "node"
+language: php
 
-# masterブランチのみ実行対象に入れる
-branches:
-  only: 
-    - master
+php:
+  - 5.6
 
-script: npm test
-env:
-  - JQUERY_VERSION=1.8.3
-  - JQUERY_VERSION=1.12.4
-  - JQUERY_VERSION=2.2.4
-  - JQUERY_VERSION=3.2.1
+install:
+  - composer install
+  - composer require satooshi/php-coveralls '~1.0'
+  - nvm install 6
+  - nvm use 6
+  - npm install
+  - npm install codecov
+
+script:
+  - ./vendor/bin/phpunit --coverage-clover clover.xml
+  - ./node_modules/bin/istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly ./test/js -- -R spec
+
+# Submit generated coverage report to Codecov servers
+after_success:
+  - bash <(curl -s https://codecov.io/bash) -cF php
+  - ./node_modules/bin/codecov
+ 
