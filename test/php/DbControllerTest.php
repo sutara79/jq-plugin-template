@@ -12,9 +12,10 @@ final class DbControllerTest extends TestCase
      */
     public function testCanBeCreatedFromUserInput()
     {
+        $obj = new DbController();
         $this->assertEquals(
             'Hello-processed',
-            DbController::getInfo('Hello')
+            $obj->getInfo('Hello')
         );
     }
 }
