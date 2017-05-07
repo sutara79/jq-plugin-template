@@ -1,16 +1,28 @@
 {
-  "name": "jq-plugin-template",
+  "name": "jquery.my-plugin",
+  "description": "My practice for unit-testing and code-coverage to develop jQuery-plugin.",
   "license": "MIT",
+  "version": "0.0.1",
+  "author": "Yuusaku Miyazaki <toumin.m7@gmail.com>",
   "repository": {
     "type": "git",
     "url": "https://github.com/sutara79/jq-plugin-template.git"
   },
+  "dependencies": {
+    "jquery": ">=3.0.0"
+  },
   "devDependencies": {
-    "istanbul": "^0.4.5",
-    "mocha": "^3.3.0"
+    "grunt": "^1.0.1",
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-uglify": "^2.3.0",
+    "grunt-qunit-istanbul": "^0.6.0",
+    "package-json-validator": "^0.6.1"
   },
   "scripts": {
-    "test": "mocha ./test/js/*.js",
-    "cover": "istanbul cover node_modules/mocha/bin/_mocha --dir ./coverage/js --report html ./test/js"
+    "test": "grunt qunit",
+    "concat": "grunt concat",
+    "uglify": "grunt uglify",
+    "pjv": "pjv",
+    "before-push": "npm run pjv && npm run concat && npm test && npm run uglify && composer cover"
   }
 }

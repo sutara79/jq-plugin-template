@@ -1,6 +1,6 @@
 # jq-plugin-template
 [![Build Status](https://travis-ci.org/sutara79/jq-plugin-template.svg?branch=master)](https://travis-ci.org/sutara79/jq-plugin-template)
-[![Coverage Status](https://coveralls.io/repos/github/sutara79/jq-plugin-template/badge.svg?branch=master)](https://coveralls.io/github/sutara79/jq-plugin-template?branch=master)
+[![codecov](https://codecov.io/gh/sutara79/jq-plugin-template/branch/master/graph/badge.svg)](https://codecov.io/gh/sutara79/jq-plugin-template)
 
 個人的な、jQueryプラグインの定義とテスト方法のひな形です。  
 showLinkLocationという簡単なプラグインを実際に定義しています。
