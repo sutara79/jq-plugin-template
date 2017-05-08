@@ -16,13 +16,15 @@
     "grunt-contrib-concat": "^1.0.1",
     "grunt-contrib-uglify": "^2.3.0",
     "grunt-qunit-istanbul": "^0.6.0",
-    "package-json-validator": "^0.6.1"
+    "package-json-validator": "^0.6.1",
+    "uglifycss": "0.0.27"
   },
   "scripts": {
     "test": "grunt qunit",
     "concat": "grunt concat",
     "uglify": "grunt uglify",
-    "pjv": "pjv",
-    "before-push": "npm run pjv && npm run concat && npm test && npm run uglify && composer cover"
+    "cssmin": "grunt cssmin",
+    "uglifycss": "uglifycss ./dist/css/jquery.my-plugin.css > ./dist/css/jquery.my-plugin.min.css",
+    "pjv": "pjv"
   }
 }
