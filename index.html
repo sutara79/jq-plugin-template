@@ -1,65 +1,22 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html>
 <head>
 <meta charset="utf-8">
-<title>jquery.showLinkLocation</title>
+<title>Demo: jquery.my-plugin</title>
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-<script src="dist/jquery.show-link-location.js"></script>
+<script src="dist/js/jquery.my-plugin.js"></script>
 <script>
 $(function() {
-  // 複数の要素にプラグインを適用する。
-  // メソッドチェーンの確認のため、事後にCSSを変更する。
-  $('#b0').click(function() {
-    $('.show-url')
-      .showLinkLocation()
-      .css('font-weight', 'bold');
-  });
-
-  // ひとつだけ、ユーザの操作に応じてプラグインのサブメソッドを実行する。
-  // メソッドチェーンの確認のため、事後にCSSを変更する。
-  $('#b1').click(function() {
-    $('#a1')
-      .showLinkLocation('destroy')
-      .css('text-decoration', 'none');
-  });
-
-  // ひとつだけ、ユーザの操作に応じてプラグインのサブメソッドを実行する。
-  // メソッドチェーンの確認のため、事後にCSSを変更する。
-  $('#b2').click(function() {
-    $('#a2')
-      .showLinkLocation('reset', {
-        space: ': ',
-        bracketLeft: '"',
-        bracketRight: '"'
-      })
-      .css('font-weight', 'normal');
-  });
-
-  // プライベートメソッド「_initOption」を呼び出す。
-  // コンソールにエラーが表示される。
-  $('#b3').click(function() {
-    $('#a3').showLinkLocation('_initOption');
+  $('#foo').myPlugin({
+    url: './dist/php/ajax.php',
+    q: 'Hello'
   });
 });
 </script>
 </head>
 <body>
-<h1>jquery.showLinkLocation</h1>
-<ul>
-  <li><a id="a1" class="show-url" href="http://qiita.com/">Qiita</a></li>
-  <li><a id="a2" class="show-url" href="https://github.com/">GitHub</a></li>
-  <li><a id="a3" class="show-url" href="http://b.hatena.ne.jp/">はてなブックマーク</a></li>
-</ul>
-<p>
-  <button id="b0">3つのa要素にプラグインを適用する</button>
-</p>
-<p>
-  <button id="b1">Qiitaのリンクのみ、URLを削除する (destroy)</button><br>
-  <button id="b2">GitHubのリンクのみ、新たに作り直す (reset)</button><br>
-  <button id="b3">外部公開されていないメソッドを呼び出す (コンソールにエラーが表示される)</button>
-</p>
-<p>
-  <a href="test/">Mochaによるテスト</a>
-</p>
+<h1>Demo: jquery.my-plugin</h1>
+<p>NOTE: Please access this file from web server with PHP.</p>
+<div id="foo"></div>
 </body>
 </html>

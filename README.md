@@ -2,23 +2,51 @@
 [![Build Status](https://travis-ci.org/sutara79/jq-plugin-template.svg?branch=master)](https://travis-ci.org/sutara79/jq-plugin-template)
 [![codecov](https://codecov.io/gh/sutara79/jq-plugin-template/branch/master/graph/badge.svg)](https://codecov.io/gh/sutara79/jq-plugin-template)
 
-個人的な、jQueryプラグインの定義とテスト方法のひな形です。  
-showLinkLocationという簡単なプラグインを実際に定義しています。
+My barebone to develop jQuery-plugin.  
+You can test client-side JavaScript, get code coverage and get badges from Travis CI and Codecov.
 
-## Demo
-https://sutara79.github.io/jq-plugin-template/
+## Usage
+### Unit testing
+###### JavaScript
+```bash
+# Unit testing and code coverage
+$ npm test
+```
 
-## Feature
-- メソッドチェーンを持続します。
-- プラグイン定義後に、パブリックメソッドを外部から実行できます。
+###### PHP
+```bash
+# Unit testing
+$ composer test
 
-詳しくは下記をご覧ください。
+# Unit testing and code coverage
+$ composer cover
+```
 
-- [外部からメソッドを実行可能なjQueryプラグインの定義方法](http://qiita.com/sutara79/items/86234d8d4db1dd25e85e)
 
-## Compatibility
-- jQuery: 1.8+, 2.2, 3.2
-- Browser: Chrome57, Firefox52, IE9+, EdgeHTML14
+## Structure
+### JavaScript
+- npm
+    - [jQuery 3.2](https://github.com/jquery/jquery)
+    - [grunt-qunit-istanbul](https://github.com/asciidisco/grunt-qunit-istanbul)
+        - [QUnit 1.23](https://github.com/qunitjs/qunit): Unit testing.
+        - [Istanbul 0.3](https://github.com/gotwarlost/istanbul): Code coverage.
+        - [PhantomJS 1.9](https://github.com/ariya/phantomjs/): Headless browser for unit testing using DOM.
+    - [grunt-contrib-concat](https://github.com/gruntjs/grunt-contrib-concat): Concatenate js-files.
+    - [grunt-contrib-uglify](https://github.com/gruntjs/grunt-contrib-uglify): Minify js-files.
+
+### CSS
+- npm
+    - [uglifycss](https://github.com/fmarcia/UglifyCSS): Minify css-files.
+
+### PHP
+- Composer
+    - [PHPUnit 6.1](https://github.com/sebastianbergmann/phpunit): Unit testing.
+
+### CI
+- [Travis CI](https://travis-ci.org/sutara79/jq-plugin-template): Unit testing.
+- [Codecov](https://codecov.io/gh/sutara79/jq-plugin-template): Code coverage.
+
 
 ## Author
-Yuusaku Miyazaki <toumin.m7@gmail.com>
+[Yuusaku Miyazaki](http://qiita.com/sutara79/items/86234d8d4db1dd25e85e)
+( <toumin.m7@gmail.com> )

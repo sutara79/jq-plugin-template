@@ -10,11 +10,12 @@ install:
   - npm install
   - npm install codecov
 
+# Test and get code coverage
 script:
   - ./vendor/bin/phpunit --coverage-clover clover.xml
   - npm test
 
-# Submit generated coverage report to Codecov servers
+# Submit coverage report to Codecov
 after_success:
   - bash <(curl -s https://codecov.io/bash) -cF php
   - ./node_modules/bin/codecov
